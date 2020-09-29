@@ -1,0 +1,104 @@
+{
+	"name": "vscode-plugin-codehub",
+	"displayName": "cp my codehub download url",
+	"description": "copy codehub file to url download",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.49.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.codehub.link",
+		"onCommand:extension.codehub.curl",
+		"onCommand:extension.codehub.bash"
+	],
+	"main": "./src/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.codehub.link",
+				"title": "获取 codehub 下载链接"
+			},
+			{
+				"command": "extension.codehub.curl",
+				"title": "获取 codehub curl 链接"
+			},
+			{
+				"command": "extension.codehub.bash",
+				"title": "获取 codehub bash 执行链接"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorFocus",
+					"command": "extension.codehub.link",
+					"group": "z_commands"
+				},
+				{
+					"when": "editorFocus",
+					"command": "extension.codehub.curl",
+					"group": "z_commands"
+				},
+				{
+					"when": "editorFocus",
+					"command": "extension.codehub.bash",
+					"group": "z_commands"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "extension.codehub.link",
+					"group": "z_commands"
+				},
+				{
+					"command": "extension.codehub.curl",
+					"group": "z_commands"
+				},
+				{
+					"command": "extension.codehub.bash",
+					"group": "z_commands"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "codehub copy configuration",
+			"properties": {
+				"codehub.uri": {
+					"type": "string",
+					"default": "",
+					"description": "codehub uri prefix"
+				},
+				"codehub.auth": {
+					"type": "string",
+					"default": "",
+					"description": "codehub auth"
+				},
+				"codehub.stripePrefix": {
+					"type": "string",
+					"default": "D-代码",
+					"description": "需要去除的路径前缀"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.49.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	}
+}
