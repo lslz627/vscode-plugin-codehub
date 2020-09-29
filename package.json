@@ -1,18 +1,19 @@
 {
 	"name": "vscode-plugin-codehub",
-	"displayName": "cp my codehub download url",
+	"displayName": "codehub download url",
 	"description": "copy codehub file to url download",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.49.0"
 	},
-	"publisher": "adden",
+	"publisher": "lslz627",
 	"categories": [
 		"Other"
 	],
 	"repository": {
 		"url": "https://github.com/lslz627/vscode-plugin-codehub"
 	},
+	"icon": "image.jpg",
 	"activationEvents": [
 		"onCommand:extension.codehub.link",
 		"onCommand:extension.codehub.curl",
@@ -69,7 +70,7 @@
 		},
 		"configuration": {
 			"type": "object",
-			"title": "codehub copy configuration",
+			"title": "codehub download url",
 			"properties": {
 				"codehub.uri": {
 					"type": "string",
